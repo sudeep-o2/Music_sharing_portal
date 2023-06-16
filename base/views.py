@@ -56,7 +56,7 @@ def upload(request):
         MusicFile.objects.create(
             host=request.user,
             title = request.POST.get('title'),
-            file = request.POST.get('file'),
+            file = request.FILES['file'],
             visibility = request.POST.get('visibility'),
             allowed_emails = request.POST.get('allowed_emails').split(','),     
         )

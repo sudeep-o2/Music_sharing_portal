@@ -27,14 +27,7 @@ class MusicFile(models.Model):
     visibility = models.CharField(max_length=10, choices=VISIBILITY_CHOICES)
     allowed_emails = models.TextField(blank=True, null=True)  # Comma-separated list of allowed emails
 
-    # def is_accessible_by_email(self, email):
-    #     if self.visibility == 'public':
-    #         return True
-    #     elif self.visibility == 'private':
-    #         return False
-    #     elif self.visibility == 'protected':
-    #         allowed_emails = self.allowed_emails.split(',')
-    #         return email in allowed_emails
+
 
     def __str__(self):
         return self.title
