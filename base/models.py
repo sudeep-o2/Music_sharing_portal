@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     
+    
     name = models.CharField(max_length=200,null=True)
     email=models.EmailField(unique=True,null=True)
 
@@ -20,19 +21,20 @@ class MusicFile(models.Model):
         ('protected', 'Protected'),
     ]
 
+    host=models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     file = models.FileField(upload_to='music/')
     visibility = models.CharField(max_length=10, choices=VISIBILITY_CHOICES)
     allowed_emails = models.TextField(blank=True, null=True)  # Comma-separated list of allowed emails
 
-    def is_accessible_by_email(self, email):
-        if self.visibility == 'public':
-            return True
-        elif self.visibility == 'private':
-            return False
-        elif self.visibility == 'protected':
-            allowed_emails = self.allowed_emails.split(',')
-            return email in allowed_emails
+    # def is_accessible_by_email(self, email):
+    #     if self.visibility == 'public':
+    #         return True
+    #     elif self.visibility == 'private':
+    #         return False
+    #     elif self.visibility == 'protected':
+    #         allowed_emails = self.allowed_emails.split(',')
+    #         return email in allowed_emails
 
     def __str__(self):
         return self.title
