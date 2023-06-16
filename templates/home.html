@@ -1,0 +1,36 @@
+<h1>Music Portal</h1>
+<hr>
+<div class="container">
+    <div>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+
+    <div>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+
+    <div style="float: right;">
+        <a href="{% url 'upload' %}"><small>Upload-Files</small></a>
+    </div><br>
+   
+</div>
+<hr>
+
+{% if request.user.is_authenticated %}
+<div>
+    Welcome  -  <small>{{request.user.username}}</small>
+</div>
+{% endif %}
+<hr>
+
+
+<div>
+    {% for music in music_list %}
+    <div>
+        <h3>Hii - {{user}}</h3>
+       
+        <audio controls > <source src=" {% if music.file %} {{ music.file.url }} {% endif %}" type="audio/wav">
+        {{music.title}}
+    </div>
+    {% endfor %}
+</div>

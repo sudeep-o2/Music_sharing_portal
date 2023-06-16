@@ -1,0 +1,25 @@
+<h2>Upload Form</h2>
+
+<div>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">Title</label>
+    <input type="text" name="title" id="" required><br><br>
+
+    <label for="">File</label>
+    <input type="file" name="file" id="" required><br><br>
+
+    <label for="">Visibility</label>
+    <select name="visibility" id="" required>
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+        <option value="protected">Protected</option>
+
+    </select><br><br>
+
+    <label for="">Allowed_Emails(comma-separated)</label>
+    <input type="text" name="allowed_emails" id=""><br><br>
+
+    <button type="submit" >Upload</button>
+</form>
+</div>
