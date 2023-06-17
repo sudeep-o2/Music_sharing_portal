@@ -1,1 +1,1 @@
-web: gunicorn Musicportal.wsgi --log-file -
+web: gunicorn 'Musicportal.wsgi' 
