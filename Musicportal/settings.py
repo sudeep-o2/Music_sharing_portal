@@ -28,7 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://musicsharingportal'
+    'https://musicsharingportal-production.up.railway.app'
     #'https://your-base-domain'
 ]
 
