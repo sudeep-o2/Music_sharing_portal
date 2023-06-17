@@ -33,14 +33,15 @@ def loginView(request):
         try:
             user=User.objects.get(email=email)
         except:
-            return HttpResponse('error in email')
+            return HttpResponse('Error in email')
         
         user=authenticate(request,email=email,password=password)
         if user is not None:
             login(request,user)
             return redirect('home')
         else:
-            return HttpResponse('Error')
+            return HttpResponse('Error in logging in')
+    
     context={'stat':stat}
     return render(request,'base/login_reg.html',context)
 
