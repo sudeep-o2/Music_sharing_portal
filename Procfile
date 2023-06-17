@@ -1,1 +1,1 @@
-web: gunicorn 'Musicportal.wsgi' 
+web: gunicorn 'Musicportal.wsgi'
